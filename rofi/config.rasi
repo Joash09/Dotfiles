@@ -1,0 +1,5 @@
+configuration {
+    modi: "run#window";
+	lines: 8;
+  	theme: "~/.cache/wal/colors-rofi-dark.rasi";
+}
