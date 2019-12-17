@@ -1,0 +1,82 @@
+; -------
+; Colours
+; -------
+
+[colors]
+background = #00000000
+;background = ${xrdb:color0:#222}
+foreground = ${xrdb:color7:#222}
+foreground-alt = ${xrdb:color7:#222}
+primary = ${xrdb:color2:#222}
+secondary = ${xrdb:color3:#222}
+alert = ${xrdb:color3:#222}
+
+; -----
+; Fonts
+; -----
+; ----
+; Bars
+; ----
+
+[bar/base]
+font-0 = "Ubuntu Mono:pixelsize=14;2"
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+border-size = 4
+border-color = ${colors.primary}
+padding-right = 2
+
+tray-postion = right
+tray-padding = 2
+
+; override-redirect = true
+fixed-center = true
+
+modules-left = workspaces
+modules-center = time
+modules-right = alsa wireless-network
+
+; -------
+; Modules
+; -------
+
+[module/time]
+type = internal/date
+interval = 1.0
+label = %date% %time%
+date = %d %b%
+time = %H:%M
+
+[module/workspaces]
+type = internal/i3
+pin-workspaces = true 
+
+format = <label-state> <label-mode>
+label-focused = %index%
+label-focused-foreground = ${colors.foreground}
+label-focused-background = ${colors.primary}
+label-focused-underline = ${colors.primary}
+label-focused-padding = 1
+
+label-unfocused = %index%
+label-unfocused-foreground = ${colors.foreground}
+label-unfocused-background = ${colors.background}
+label-unfocused-underline = ${colors.background}
+label-unfocused-padding = 1
+
+[module/alsa]
+type = internal/alsa
+
+format-volume = <label-volume>
+label-volume = Vol: %percentage%%
+format-volume-padding = 1
+
+[module/wireless-network]
+type = internal/network
+interface = wlx503eaad5148d
+
+format-connected = <label-connected> 
+format-disconnected = <label-disconnected>
+label-connected = %essid%

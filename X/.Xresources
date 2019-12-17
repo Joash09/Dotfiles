@@ -1,0 +1,23 @@
+! Configuration file for X client applications
+
+!! Import colours from Pywal
+#include  "/home/joash/.cache/wal/colors.Xresources"
+
+!! URxvt Appearance
+URxvt.scrollBar: false
+
+!! URxvt Font
+URxvt*font: xft:Ubuntu Mono:pixelsize=16
+Ubuntu*boldfont: xft:Ubuntu Mono:bold
+
+!! URxvt Extensions
+URxvt.perl-lib: /home/joash/development/urxvt-perls/
+URxvt.perl-ext-common: keyboard-select,clipboard
+
+! Keyboard select
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.keyboard-select.clipboard: true
+
+! URL stuff
+! URxvt.urlLauncher: firefox
+! URxvt.underlineURLs: true
