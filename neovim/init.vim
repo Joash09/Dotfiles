@@ -1,19 +1,33 @@
-" if has("termguicolors")
-"    set termguicolors
-" endif
+" ################
+" General
+" ################
 
-set mouse=a
-set background=dark
 set relativenumber
-set tabstop=4
+filetype indent plugin on
+syntax enable
 
+" ################
+" Plugins
+" ################
 
-call plug#begin('~/.local/share/nvim/plugged')
+call plug#begin('~/.vim/plugged')
 
-Plug 'ervandew/supertab'
-Plug 'vim-syntastic/syntastic'
-Plug 'dylanaraps/wal.vim'
+Plug 'dense-analysis/ale'
+Plug 'Omnisharp/omnisharp-vim'
+Plug '/usr/bin/fzf', { 'do': { -> fzf#install() } }
 
 call plug#end()
 
-colorscheme wal
+" ################
+" Omnisharp Config
+" ################
+
+let g:ale_linters = {
+\ 'cs': ['Omnisharp']
+\}
+
+let g:OmniSharp_popup_options = {
+\ 'winhl': 'Normal:Normal',
+\}
+
+let g:OmniSharp_popup_position = 'center'
